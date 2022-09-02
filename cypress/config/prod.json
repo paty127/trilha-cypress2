@@ -1,0 +1,6 @@
+{"baseUrl" :"https://servrest.dev", 
+"env":{
+    "global_timeout":30000,
+    "environment":"PROD"
+    }
+}

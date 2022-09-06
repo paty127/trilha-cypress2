@@ -1,6 +1,5 @@
 //import cypress from "cypress";
 
-import cypress from "cypress";
 
 const URL_USUARIOS = "/usuarios";
 const URL_LOGIN = "/login";
@@ -14,11 +13,11 @@ export default class Serverest {
   //Realizar login
 
   static buscarUsuarios() {
-    return cy.rest("GET", URL_USUARIOS)
+    return cy.rest('GET', URL_USUARIOS)
   }
 
-  static buscarUsuariosParaLogin() {
-   cy.request(URL_USUARIO).then( res => {
+  static buscarUsuarioParaLogin() {
+   cy.request(URL_USUARIOS).then( res => {
     cy.wrap({
       email: res.body.usuarios[0].email,
       password: res.body.usuarios[0].password 
@@ -38,35 +37,23 @@ export default class Serverest {
   static buscarProdutos(){
     return cy.rest('GET', URL_PRODUTOS)
 
+  }
+  cadastrarProdutoComSucesso(){
+    return cy.request({
+      method: 'POST',
+      url: URL_PRODUTOS,
+      body:{
+        "nome": 'C3 MV Horizontal',
+        "preco":47,
+        "descricao":"mouse",
+        "quantidade":381
+
+
+      }, failOnStatusCode: true,
+      auth:{
+        bearer: Cypress.env('bearer'),
+      }
+
+    })
+  }
 }
-// Produtos
-static buscarProdutos(){
-  return cy.rest('GET', URL_PRODUTOS) 
-
-}
-static cadastrarProdutoComSucesso(){ 
-cy.log(Cypress.env("bearer" ))
-  return cy.request({
-    method: 'POST', 
-    url: URL_PRODUTOS,
-    failOnStatusCode:false, 
-    header: {
-      authorization:Cypress.env('bearer')
-    },  
-   body: {
-      "nome": "Logitech MT horizontal",
-      "preco": 350,
-      "descricao": "Carro",
-      "quantidade": 7 
-      
-    
-  
-    }
- 
-
-  })
-
-}
-}
-
-

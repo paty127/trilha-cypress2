@@ -24,14 +24,14 @@ Cypress.Commands.add('rest', (method = 'GET', url = '/', body = null, failOnStat
      
     })  
 })  
-Cypress.Commands.add('logar', (email, senha) =>{
+Cypress.Commands.add('logar', (email, senha) => {
     cy.request({
         method: 'POST',
         url: '/login',
         failOnStatusCode: false,
         body: { 
-        "email": "email",
-        "password": "senha"
+        "email": email,
+        "password": senha
         }
 
     })  

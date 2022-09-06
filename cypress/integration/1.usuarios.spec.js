@@ -22,9 +22,9 @@ describe('Caso de teste sobre a rota /usuarios da API Serverest', () => {
  
     it("Deve realizar login com sucesso", () => {
 
-      Serverest.buscarUsuarioParaLogin().then( usuario => {
+      Serverest.buscarUsuarioParaLogin( usuario => {
         Serverest.logar(usuario).then(res => {
-        ValidaServerest.validaLoginComSucesso(res)
+        ValidaServerest.validarLoginComSucesso(res)
           var bearer = res.body.authorization.slice(7)
           cy.log(bearer)
         })

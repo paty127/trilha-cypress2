@@ -11,12 +11,13 @@ return  cy.request({
         "nome": "Ricky Turcotte",
         "email": "automation-postUserBrook.Harris33@yahoo.com",
         "password": "1234",
-        "administrador": "true", 
+        "administrador": "true"
     }
     })
 })
-Cypress.Commands.add('rest', (method = 'GET', url = '/', body = null, failOnStatusCode = false) =>{
- cy.request({
+Cypress.Commands.add('rest', (method = 'GET', url = '/', body = null , failOnStatusCode = false) =>{
+
+    return cy.request({
         method: method, 
         url: url,
         failOnStatusCode:failOnStatusCode, 

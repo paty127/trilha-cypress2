@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/paty127/trilha-cypress2#readme",
   "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
     "cypress": "^9.7.0",
-    "faker": "^6.6.6"
+    "faker": "^5.5.3"
   }
 }
